@@ -1,0 +1,1211 @@
+<!doctype html>
+<!-- booking.html — Mario Auto & Detailing -->
+<html lang="en-ZA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08080A" />
+    <meta
+      name="description"
+      content="Create a personalised detailing estimate and downloadable booking request with our four-step vehicle, service, schedule and contact wizard."
+    />
+    <title>Build Your Personal Detail | Mario Auto &amp; Detailing</title>
+    <meta
+      property="og:title"
+      content="Build Your Personal Detail | Mario Auto &amp; Detailing"
+    />
+    <meta
+      property="og:description"
+      content="Create a personalised detailing estimate and downloadable booking request with our four-step vehicle, service, schedule and contact wizard."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/showroom-hero.jpg" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Required CDN stack. The design and interactions also work with local CSS, SVG icons and a local Three.js fallback. -->
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+      async
+    ></script>
+    <script src="https://unpkg.com/lucide@latest" async></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/three-scene.js" defer></script>
+  </head>
+  <body data-page="booking">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="sr-only"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+                <symbol id="i-phone" viewBox="0 0 24 24">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-map" viewBox="0 0 24 24">
+          <polygon
+            points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <line x1="8" y1="2" x2="8" y2="18" stroke="currentColor" stroke-width="1.75" />
+          <line x1="16" y1="6" x2="16" y2="22" stroke="currentColor" stroke-width="1.75" />
+        </symbol>
+        <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+          <path
+            d="M7 17 17 7M7 7h10v10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24">
+          <path
+            d="M4 12h16m-6-6 6 6-6 6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24">
+          <path
+            d="M20 12H4m6-6-6 6 6 6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-arrow-down" viewBox="0 0 24 24">
+          <path
+            d="M12 4v16m-6-6 6 6 6-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24">
+          <path
+            d="M12 20V4m-6 6 6-6 6 6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-chevron-right" viewBox="0 0 24 24">
+          <path
+            d="m9 5 7 7-7 7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-chevron-left" viewBox="0 0 24 24">
+          <path
+            d="m15 5-7 7 7 7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-chevron-down" viewBox="0 0 24 24">
+          <path
+            d="m6 9 6 6 6-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+          <path
+            d="M4 7h16M4 12h16M4 17h16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-x" viewBox="0 0 24 24">
+          <path
+            d="m6 6 12 12M6 18 18 6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path
+            d="m5 12 4 4L19 6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24">
+          <path
+            d="M12 5v14M5 12h14"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-minus" viewBox="0 0 24 24">
+          <path d="M5 12h14" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-car" viewBox="0 0 24 24">
+          <path
+            d="m3 11 2-6h14l2 6v8h-3v-3H6v3H3v-8Zm0 0h18M6 8h12M6 13h2m8 0h2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-suv" viewBox="0 0 24 24">
+          <path
+            d="M3 18v-8l2-5h13l3 5v8h-3v-3H6v3H3ZM3 10h18M8 5v5M6 12h2m8 0h2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-truck" viewBox="0 0 24 24">
+          <path
+            d="M2 8h12v8H2V8Zm12 3h4l4 4v1h-8M6 16v1m12-1v1M5 8V5h7v3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24">
+          <path
+            d="M12 3 3 7v5c0 5 9 9 9 9s9-4 9-9V7l-9-4Zm-4 9 3 3 5-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-sparkles" viewBox="0 0 24 24">
+          <path
+            d="m12 3 2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3ZM20 2v4m-2-2h4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-droplet" viewBox="0 0 24 24">
+          <path
+            d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12ZM8 15a4 4 0 0 0 4 4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24">
+          <path
+            d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-circle-check" viewBox="0 0 24 24">
+          <path
+            d="M21 11a9 9 0 1 1-5-8M8 11l4 4L22 5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <path
+            d="M12 8v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <path
+            d="M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM7 2v6m10-6v6M3 11h18m-12 4h.01M12 15h.01M15 15h.01"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-map-pin" viewBox="0 0 24 24">
+          <path
+            d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0ZM15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-camera" viewBox="0 0 24 24">
+          <path
+            d="M4 6h4l2-3h4l2 3h4a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1ZM16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24">
+          <path
+            d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4ZM16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0M17.5 6.5h.01"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-cube" viewBox="0 0 24 24">
+          <path
+            d="m12 3 9 5v9l-9 5-9-5V8l9-5ZM3 8l9 5 9-5M12 13v9M8 5l9 5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-pause" viewBox="0 0 24 24">
+          <path
+            d="M8 5v14M16 5v14"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-play" viewBox="0 0 24 24">
+          <path
+            d="m8 4 12 8-12 8V4Z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-rotate" viewBox="0 0 24 24">
+          <path
+            d="M3 10a9 9 0 1 1 1 7M3 4v6h6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-compare" viewBox="0 0 24 24">
+          <path
+            d="M12 3v18M8 8l-4 4 4 4m8-8 4 4-4 4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <path
+            d="M12 11v6m0-10h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24">
+          <path
+            d="M6 10h12a2 2 0 0 1 2 2v8H4v-8a2 2 0 0 1 2-2ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path
+            d="M12 3v12m-5-5 5 5 5-5M4 15v6h16v-6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-file" viewBox="0 0 24 24">
+          <path
+            d="M14 2H5v20h14V7l-5-5Zm0 0v6h5M8 12h8M8 16h6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-headphones" viewBox="0 0 24 24">
+          <path
+            d="M4 13v-1a8 8 0 1 1 16 0v1M4 12H2v7h5v-7H4Zm16 0h2v7h-5v-7h3Z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-ruler" viewBox="0 0 24 24">
+          <path
+            d="m3 15 12-12 6 6L9 21l-6-6ZM8 10l3 3m1-7 3 3m-3 7 3 3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-wind" viewBox="0 0 24 24">
+          <path
+            d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h6a3 3 0 1 1-3 3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="i-light" viewBox="0 0 24 24">
+          <path
+            d="M9 18h6M10 21h4M8 14a6 6 0 1 1 8 0l-1 2H9l-1-2Z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+      </defs></svg
+    ><a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header glass-nav" id="top">
+      <div class="container nav-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Mario Auto and Detailing home"
+          ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
+          ><span
+            ><span class="brand-word">MARIO</span
+            ><span class="brand-descriptor">AUTO &amp; DETAILING</span></span
+          ></a
+        >
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a class="nav-link" href="index.html">Home</a
+          ><a class="nav-link" href="services.html">Services</a
+          ><a class="nav-link" href="transformations.html">Transformations</a
+          ><a class="nav-link" href="about.html">About</a>
+        </nav>
+        <div class="nav-actions">
+          <span class="nav-location"
+            ><svg class="icon" aria-hidden="true">
+              <use href="#i-map-pin"></use>
+            </svg>
+            DURBAN, ZA</span
+          ><a class="btn btn-primary" href="booking.html" aria-current="page"
+            >Book a detail
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-arrow-up-right"></use></svg></a
+          ><button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-menu"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <nav aria-label="Mobile navigation">
+        <a href="index.html">Home</a><a href="services.html">Services</a
+        ><a href="transformations.html">Transformations</a
+        ><a href="about.html">About</a
+        ><a href="booking.html"
+          >Book a detail
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-arrow-up-right"></use></svg
+        ></a>
+      </nav>
+      <div class="mobile-contact-bar">
+        <a class="btn btn-secondary" href="tel:+2778064006" aria-label="Call workshop: +27 78 064 006">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-phone"></use>
+          </svg>
+          Call (+27) 078 064 006
+        </a>
+        <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=16+Mona+Rd%2C+Durban+Central%2C+Durban%2C+4001" target="_blank" rel="noopener noreferrer" aria-label="Open workshop map">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-map-pin"></use>
+          </svg>
+          16 Mona Rd
+        </a>
+      </div>
+      <p>
+        Precision care. Exceptional finishes.<br />Durban, KwaZulu-Natal · by
+        appointment.
+      </p>
+    </div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero booking-page-hero">
+        <div class="container">
+          <div class="breadcrumbs">
+            <a href="index.html">The showroom</a
+            ><svg class="icon" aria-hidden="true">
+              <use href="#i-chevron-right"></use></svg
+            ><span>Booking</span>
+          </div>
+          <div class="page-hero-content">
+            <div>
+              <p class="eyebrow">THE START OF SOMETHING EXCEPTIONAL</p>
+              <h1 class="display-heading">
+                YOUR CAR.<br /><span class="text-gradient"
+                  >OUR NEXT OBSESSION.</span
+                >
+              </h1>
+            </div>
+            <p>
+              Four considered steps. One personalised request. Your preferred
+              date and quote are confirmed by the studio.
+            </p>
+          </div>
+          <div class="page-hero-foot">
+            <span
+              ><svg class="icon" aria-hidden="true">
+                <use href="#i-shield"></use>
+              </svg>
+              NO PAYMENT. NO PRESSURE. JUST A CLEAR STARTING POINT.</span
+            ><span class="page-number">MARIO / BOOKING</span>
+          </div>
+        </div>
+      </section>
+      <section class="container booking-layout">
+        <div class="wizard-main">
+          <div class="wizard-progress" aria-label="Booking request progress">
+            <button type="button" data-wizard-goto="1" aria-current="step">
+              <span class="step-number">01</span
+              ><span class="step-name">Your vehicle</span></button
+            ><button type="button" data-wizard-goto="2" disabled>
+              <span class="step-number">02</span
+              ><span class="step-name">Your detail</span></button
+            ><button type="button" data-wizard-goto="3" disabled>
+              <span class="step-number">03</span
+              ><span class="step-name">Your schedule</span></button
+            ><button type="button" data-wizard-goto="4" disabled>
+              <span class="step-number">04</span
+              ><span class="step-name">Your details</span>
+            </button>
+          </div>
+          <form id="booking-form" novalidate>
+            <div
+              class="wizard-error"
+              id="wizard-error"
+              role="alert"
+              hidden
+            ></div>
+            <section
+              class="wizard-step"
+              data-wizard-step="1"
+              aria-labelledby="step-1-heading"
+            >
+              <div class="wizard-heading">
+                <p class="eyebrow">01 / A LITTLE INTRODUCTION</p>
+                <h2 id="step-1-heading" tabindex="-1">
+                  Tell us about your vehicle.
+                </h2>
+                <p>Every finish has a story. Let’s start with yours.</p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="vehicle-year">Model year *</label
+                  ><select id="vehicle-year" name="year" required>
+                    <option value="">Select year</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="vehicle-make">Make *</label
+                  ><select id="vehicle-make" name="make" required>
+                    <option value="">Select make</option>
+                    <option>Volkswagen</option>
+                    <option>Toyota</option>
+                    <option>Ford</option>
+                    <option>Suzuki</option>
+                    <option>Isuzu</option>
+                    <option>Hyundai</option>
+                    <option>Nissan</option>
+                    <option>Kia</option>
+                    <option>Renault</option>
+                    <option>BMW</option>
+                    <option>Mercedes-Benz</option>
+                    <option>Audi</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="vehicle-model">Model *</label
+                ><input
+                  id="vehicle-model"
+                  name="model"
+                  type="text"
+                  list="vehicle-models"
+                  placeholder="e.g. Polo Vivo 1.4, Hilux 2.8 GD-6, Ranger 2.0"
+                  required
+                  maxlength="80"
+                  autocomplete="off"
+                /><datalist id="vehicle-models"></datalist>
+                <p class="field-note">
+                  Select a make for suggestions, or type your exact model.
+                </p>
+              </div>
+              <fieldset>
+                <legend class="form-section-title">Vehicle size *</legend>
+                <div class="choice-row">
+                  <label class="choice-card"
+                    ><input
+                      type="radio"
+                      name="vehicle"
+                      value="coupe"
+                      checked /><svg class="icon" aria-hidden="true">
+                      <use href="#i-car"></use></svg
+                    ><strong>Hatchback / Sedan</strong
+                    ><small>Polo Vivo, Corolla, Swift</small
+                    ><span class="choice-check"
+                      ><svg class="icon" aria-hidden="true">
+                        <use href="#i-check"></use></svg></span></label
+                  ><label class="choice-card"
+                    ><input type="radio" name="vehicle" value="suv" /><svg
+                      class="icon"
+                      aria-hidden="true"
+                    >
+                      <use href="#i-suv"></use></svg
+                    ><strong>SUV / Crossover</strong
+                    ><small>Fortuner, Tiguan (+20%)</small
+                    ><span class="choice-check"
+                      ><svg class="icon" aria-hidden="true">
+                        <use href="#i-check"></use></svg></span></label
+                  ><label class="choice-card"
+                    ><input type="radio" name="vehicle" value="exotic" /><svg
+                      class="icon"
+                      aria-hidden="true"
+                    >
+                      <use href="#i-truck"></use></svg
+                    ><strong>Bakkie / Double Cab</strong
+                    ><small>Hilux, Ranger, D-Max (+35%)</small
+                    ><span class="choice-check"
+                      ><svg class="icon" aria-hidden="true">
+                        <use href="#i-check"></use></svg></span
+                  ></label>
+                </div>
+              </fieldset>
+              <div class="field">
+                <label for="booking-condition">Current paint condition</label
+                ><select id="booking-condition" name="condition">
+                  <option value="minor">Minor swirls / generally sound</option>
+                  <option value="deep">
+                    Deep scratches / additional refinement
+                  </option>
+                  <option value="oxidation">
+                    Oxidation / heavily weathered
+                  </option>
+                </select>
+                <p class="field-note">
+                  Unsure? Select the closest match. The studio will inspect the
+                  finish.
+                </p>
+              </div>
+            </section>
+            <section
+              class="wizard-step"
+              data-wizard-step="2"
+              aria-labelledby="step-2-heading"
+              hidden
+            >
+              <div class="wizard-heading">
+                <p class="eyebrow">02 / SET YOUR STANDARD</p>
+                <h2 id="step-2-heading" tabindex="-1">Choose your detail.</h2>
+                <p>
+                  One primary package. Add the finishing touches that matter to
+                  you.
+                </p>
+              </div>
+              <fieldset>
+                <legend class="sr-only">Primary service package</legend>
+                <div class="service-options">
+                  <label class="service-option"
+                    ><input type="radio" name="package" value="basic" /><svg
+                      class="icon"
+                      aria-hidden="true"
+                    >
+                      <use href="#i-sparkles"></use></svg
+                    ><strong>Signature Detail</strong
+                    ><small>A complete interior and exterior reset.</small
+                    ><span class="option-price"
+                      >R 1 500<small> BASE</small></span
+                    ></label
+                  ><label class="service-option"
+                    ><input type="radio" name="package" value="stage1" /><svg
+                      class="icon"
+                      aria-hidden="true"
+                    >
+                      <use href="#i-layers"></use></svg
+                    ><strong>Stage 1 Correction</strong
+                    ><small>Clarity, gloss and light swirl reduction.</small
+                    ><span class="option-price"
+                      >R 3 500<small> BASE</small></span
+                    ></label
+                  ><label class="service-option"
+                    ><input
+                      type="radio"
+                      name="package"
+                      value="ceramic"
+                      checked
+                    /><svg class="icon" aria-hidden="true">
+                      <use href="#i-droplet"></use></svg
+                    ><strong>Correction + Ceramic</strong
+                    ><small>Multi-stage polish + 5-year ceramic.</small
+                    ><span class="option-price"
+                      >R 8 900<small> BASE</small></span
+                    ></label
+                  ><label class="service-option"
+                    ><input type="radio" name="package" value="ppf" /><svg
+                      class="icon"
+                      aria-hidden="true"
+                    >
+                      <use href="#i-shield"></use></svg
+                    ><strong>Ultimate Full-Body PPF</strong
+                    ><small>A self-healing physical protection layer.</small
+                    ><span class="option-price"
+                      >R 35 000<small> BASE</small></span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <h3 class="addon-title">
+                THE FINISHING TOUCHES · OPTIONAL ADD-ONS
+              </h3>
+              <div class="addon-options">
+                <label class="addon-option"
+                  ><input type="checkbox" name="addon" value="engine" /><span
+                    >Engine Bay Detail</span
+                  ><small>+ R 650 base</small></label
+                ><label class="addon-option"
+                  ><input type="checkbox" name="addon" value="wheels" /><span
+                    >Wheel Armor Coating</span
+                  ><small>+ R 1 200 base</small></label
+                ><label class="addon-option"
+                  ><input type="checkbox" name="addon" value="leather" /><span
+                    >Interior Leather Coating</span
+                  ><small>+ R 1 400 base</small></label
+                >
+              </div>
+              <p class="fine-print" style="margin-top: 15px">
+                Displayed service prices are coupe / sedan base rates. Your
+                vehicle size and condition are reflected in the live estimate.
+              </p>
+            </section>
+            <section
+              class="wizard-step"
+              data-wizard-step="3"
+              aria-labelledby="step-3-heading"
+              hidden
+            >
+              <div class="wizard-heading">
+                <p class="eyebrow">03 / MAKE ROOM FOR EXCEPTIONAL</p>
+                <h2 id="step-3-heading" tabindex="-1">
+                  Find your preferred moment.
+                </h2>
+                <p>
+                  Select a drop-off date and time. This is a preference, not a
+                  reservation.
+                </p>
+              </div>
+              <div class="calendar-panel">
+                <div class="calendar-header">
+                  <strong id="calendar-month">Select a month</strong>
+                  <div class="calendar-controls">
+                    <button
+                      type="button"
+                      class="icon-button"
+                      id="calendar-prev"
+                      aria-label="Previous month"
+                    >
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#i-chevron-left"></use>
+                      </svg></button
+                    ><button
+                      type="button"
+                      class="icon-button"
+                      id="calendar-next"
+                      aria-label="Next month"
+                    >
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#i-chevron-right"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true">
+                  <span>MON</span><span>TUE</span><span>WED</span
+                  ><span>THU</span><span>FRI</span><span>SAT</span
+                  ><span>SUN</span>
+                </div>
+                <div
+                  class="calendar-days"
+                  id="calendar-days"
+                  role="group"
+                  aria-label="Preferred drop-off date"
+                ></div>
+                <div class="calendar-note">
+                  <span><i></i> Selectable preference</span
+                  ><span><i></i> Your selection</span>
+                </div>
+              </div>
+              <input type="hidden" name="date" id="booking-date" />
+              <fieldset>
+                <legend class="form-section-title">
+                  Preferred drop-off time *
+                </legend>
+                <div class="time-slots">
+                  <label class="time-slot"
+                    ><input type="radio" name="time" value="09:00" /><span
+                      >09:00</span
+                    ></label
+                  ><label class="time-slot"
+                    ><input type="radio" name="time" value="11:00" /><span
+                      >11:00</span
+                    ></label
+                  ><label class="time-slot"
+                    ><input type="radio" name="time" value="14:00" /><span
+                      >14:00</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <p class="schedule-notice">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-info"></use>
+                </svg>
+                Dates are illustrative preferences for the next 90 days. Past
+                dates, same-day requests and Sundays are excluded. Actual
+                capacity, Saturday hours and your vehicle’s studio duration must
+                be confirmed directly.
+              </p>
+            </section>
+            <section
+              class="wizard-step"
+              data-wizard-step="4"
+              aria-labelledby="step-4-heading"
+              hidden
+            >
+              <div class="wizard-heading">
+                <p class="eyebrow">04 / THE LAST FEW DETAILS</p>
+                <h2 id="step-4-heading" tabindex="-1">
+                  Let’s put a name to the finish.
+                </h2>
+                <p>
+                  Review your estimate, add your details, and create a
+                  downloadable request.
+                </p>
+              </div>
+              <div class="contact-notice">
+                This is a working front-end demonstration. Your contact details
+                stay in this tab until you download the request. Nothing is sent
+                to a studio, and no appointment is reserved.
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="owner-name">Full name *</label
+                  ><input
+                    type="text"
+                    id="owner-name"
+                    name="ownerName"
+                    autocomplete="name"
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    placeholder="Your full name"
+                  />
+                </div>
+                <div class="field">
+                  <label for="owner-phone">Phone number *</label
+                  ><input
+                    type="tel"
+                    id="owner-phone"
+                    name="phone"
+                    autocomplete="tel"
+                    required
+                    minlength="7"
+                    maxlength="25"
+                    placeholder="e.g. +27 82 123 4567"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="owner-email">Email address *</label
+                ><input
+                  type="email"
+                  id="owner-email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div class="field">
+                <label for="owner-notes">Anything else we should know?</label
+                ><textarea
+                  id="owner-notes"
+                  name="notes"
+                  maxlength="1000"
+                  placeholder="Existing coatings, special requirements, or what the perfect finish means to you."
+                ></textarea>
+              </div>
+              <div class="review-summary-box">
+                <h3>YOUR REQUEST, AT A GLANCE</h3>
+                <p id="final-review">
+                  Your personalised detail summary will appear here.
+                </p>
+              </div>
+              <label class="form-check contact-consent"
+                ><input type="checkbox" name="consent" required /><span
+                  >I understand this creates a local request only. The price is
+                  indicative, my chosen time is not reserved, and an inspection
+                  and direct studio confirmation are required.</span
+                ></label
+              >
+            </section>
+            <div class="wizard-footer">
+              <button
+                class="btn btn-secondary"
+                id="wizard-back"
+                type="button"
+                hidden
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-left"></use>
+                </svg>
+                Go back</button
+              ><span class="wizard-trust" id="wizard-trust"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-lock"></use>
+                </svg>
+                No payment or account required</span
+              ><button class="btn btn-primary" id="wizard-next" type="button">
+                Choose your detail
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-right"></use>
+                </svg></button
+              ><button
+                class="btn btn-primary"
+                id="wizard-submit"
+                type="submit"
+                hidden
+              >
+                Create booking request
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-up-right"></use>
+                </svg>
+              </button>
+            </div>
+          </form>
+          <section
+            class="success-panel"
+            id="booking-success"
+            aria-labelledby="success-heading"
+            hidden
+          >
+            <div class="success-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-check"></use>
+              </svg>
+            </div>
+            <p class="eyebrow" style="margin-bottom: 15px">
+              THE FIRST DETAIL. TAKEN CARE OF.
+            </p>
+            <h2 id="success-heading" tabindex="-1">Your request is ready.</h2>
+            <p>
+              Your personalised request has been created in this browser.
+              Download a copy and share it with the studio to arrange a
+              confirmed quote and appointment.
+            </p>
+            <div class="success-reference">
+              REQUEST REFERENCE <strong id="request-reference"></strong>
+            </div>
+            <p class="fine-print">
+              Nothing has been sent, charged or reserved. A calendar download is
+              marked tentative.
+            </p>
+            <div class="success-buttons">
+              <a
+                class="btn btn-primary"
+                href="tel:+2778064006"
+                aria-label="Call workshop to confirm booking: +27 78 064 006"
+              >
+                Call to confirm · (+27) 078 064 006
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-phone"></use>
+                </svg>
+              </a>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="download-request"
+              >
+                Download request
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-download"></use>
+                </svg></button
+              ><button
+                class="btn btn-secondary"
+                type="button"
+                id="download-calendar"
+              >
+                Save preferred date
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-calendar"></use>
+                </svg>
+              </button>
+            </div>
+            <button class="success-back" type="button" id="edit-request">
+              Return to your request
+            </button>
+          </section>
+        </div>
+        <aside
+          class="estimate-card booking-summary"
+          aria-labelledby="booking-summary-heading"
+        >
+          <h2 id="booking-summary-heading">YOUR PERSONAL FINISH</h2>
+          <div class="summary-stage">
+            <span class="summary-car-icon"
+              ><svg class="icon" aria-hidden="true">
+                <use href="#i-car"></use></svg
+            ></span>
+            <div class="summary-vehicle">
+              <strong id="summary-vehicle">Your vehicle, your story.</strong
+              ><span id="summary-size">Coupe / Sedan · Minor Swirls</span>
+            </div>
+          </div>
+          <div class="summary-lines" id="booking-summary-lines">
+            <div class="summary-line">
+              <span>Correction + Ceramic</span><span>R 8 900</span>
+            </div>
+          </div>
+          <p class="estimate-total-label">Indicative total · ZAR</p>
+          <div
+            class="estimate-total"
+            id="booking-total"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            R 8 900
+          </div>
+          <p class="estimate-duration">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-clock"></use>
+            </svg>
+            <span id="booking-duration">Allow 2–3 days in the studio</span>
+          </p>
+          <div class="summary-schedule">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-calendar"></use>
+            </svg>
+            <div>
+              <strong id="summary-date">Your preferred date</strong
+              ><span id="summary-time">Select a date and drop-off time</span>
+            </div>
+          </div>
+          <p class="summary-policy">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-shield"></use>
+            </svg>
+            No payment is collected. Final price, suitability and timing follow
+            an inspection and a direct conversation.
+          </p>
+          <p class="estimate-note">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-info"></use>
+            </svg>
+            Configuration is remembered on this device. Contact details are not
+            stored automatically.
+          </p>
+          <div class="booking-support">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-headphones"></use>
+            </svg>
+            <p>
+              Not sure where to start?<br /><a href="services.html#estimator"
+                >Explore the services and build an estimate.</a
+              >
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a
+              class="brand"
+              href="index.html"
+              aria-label="Mario Auto and Detailing home"
+              ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
+              ><span
+                ><span class="brand-word">MARIO</span
+                ><span class="brand-descriptor"
+                  >AUTO &amp; DETAILING</span
+                ></span
+              ></a
+            >
+            <p>
+              For those who see more than a car.<br />World-class care. An
+              uncompromising finish.
+            </p>
+            <div class="footer-location">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-map-pin"></use></svg
+              ><div>
+                <strong>16 Mona Rd, Durban Central</strong><br />
+                <span>Durban, KwaZulu-Natal, 4001</span><br />
+                <a
+                  class="footer-map-action"
+                  href="https://www.google.com/maps/search/?api=1&query=16+Mona+Rd%2C+Durban+Central%2C+Durban%2C+4001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View 16 Mona Rd, Durban Central on Google Maps"
+                >
+                  <svg class="icon" aria-hidden="true"><use href="#i-map"></use></svg>
+                  <span>View on Google Maps</span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+                </a>
+              </div>
+            </div>
+            <div class="footer-call-box">
+              <a
+                class="btn btn-secondary footer-call-btn"
+                href="tel:+2778064006"
+                aria-label="Call Mario Auto detailing workshop at (+27) 078 064 006"
+              >
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+                <span>Call Workshop · (+27) 078 064 006</span>
+              </a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>EXPLORE</h3>
+            <ul>
+              <li><a href="index.html">The showroom</a></li>
+              <li><a href="services.html">Services &amp; packages</a></li>
+              <li><a href="transformations.html">Transformations</a></li>
+              <li><a href="about.html">Our obsession</a></li>
+              <li><a href="booking.html">Book a detail</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>STUDIO HOURS</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Friday</span><span>08:00 – 17:00</span></li>
+              <li><span>Saturday</span><span>By appointment</span></li>
+              <li><span>Sunday</span><span>Closed</span></li>
+            </ul>
+            <p class="newsletter-note" style="margin-top: 16px">
+              Concept hours. All visits require confirmation.
+            </p>
+          </div>
+          <div class="footer-column footer-newsletter">
+            <h3>STAY IN THE KNOW</h3>
+            <p>
+              Care notes, studio stories, and the pursuit of a better finish.
+            </p>
+            <form data-newsletter>
+              <label class="sr-only" for="newsletter-email"
+                >Email address for studio updates</label
+              >
+              <div class="newsletter-field">
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="Your email address"
+                  required
+                  maxlength="254"
+                /><button type="submit" aria-label="Save newsletter interest">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#i-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="newsletter-note">
+                Local preview only. No subscription is sent.
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="footer-journal">
+          <span class="journal-label"
+            ><svg class="icon" aria-hidden="true">
+              <use href="#i-instagram"></use>
+            </svg>
+            FROM THE STUDIO<br />SOCIAL FEED PREVIEW</span
+          >
+          <div class="journal-grid">
+            <a
+              href="transformations.html"
+              aria-label="Explore paint correction finishes"
+              ><img
+                src="assets/paint-correction.jpg"
+                alt="Precision machine polishing"
+                width="54"
+                height="46"
+                loading="lazy" /></a
+            ><a
+              href="transformations.html"
+              aria-label="Explore ceramic coating finishes"
+              ><img
+                src="assets/ceramic-coating.jpg"
+                alt="Water beading on ceramic coating"
+                width="54"
+                height="46"
+                loading="lazy" /></a
+            ><a
+              href="transformations.html"
+              aria-label="Explore paint protection finishes"
+              ><img
+                src="assets/paint-protection.jpg"
+                alt="Clear film application"
+                width="54"
+                height="46"
+                loading="lazy" /></a
+            ><a href="about.html#studio" aria-label="Inside the concept studio"
+              ><img
+                src="assets/studio.jpg"
+                alt="The dark automotive studio"
+                width="54"
+                height="46"
+                loading="lazy"
+            /></a>
+          </div>
+          <a class="text-link" href="transformations.html"
+            >Explore the gallery
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-arrow-up-right"></use></svg
+          ></a>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © <span data-current-year>2026</span> Mario Auto &amp; Detailing.
+            Driven by detail.
+          </p>
+          <div class="footer-legal">
+            <button type="button" data-info="privacy">Privacy</button
+            ><button type="button" data-info="terms">Booking terms</button>
+          </div>
+          <a class="top-link" href="#top"
+            >BACK TO TOP
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-arrow-up"></use></svg
+          ></a>
+        </div>
+        <p class="footer-disclosure">
+          Interactive concept website. Prices, hours, reviews and availability
+          are illustrative; imagery includes AI-generated finish visualisations.
+          No reservations, payments or newsletter subscriptions are transmitted.
+        </p>
+      </div>
+    </footer>
+    <dialog
+      class="info-dialog"
+      id="info-dialog"
+      aria-labelledby="info-dialog-title"
+    >
+      <div class="dialog-top">
+        <h2 id="info-dialog-title">Information</h2>
+        <button
+          class="icon-button"
+          type="button"
+          data-close-dialog
+          aria-label="Close information"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+        </button>
+      </div>
+      <div class="dialog-body" data-dialog-body></div>
+    </dialog>
+    <div
+      class="toast-stack"
+      id="toast-stack"
+      role="status"
+      aria-live="polite"
+      aria-atomic="false"
+    ></div>
+  </body>
+</html>
